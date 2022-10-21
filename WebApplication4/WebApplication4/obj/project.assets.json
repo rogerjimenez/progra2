@@ -299,11 +299,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Upana\\2022\\Segundo Semestre\\Programacion II\\Proyecto Final\\Backend\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
+      "projectUniqueName": "D:\\Upana\\2022\\Segundo Semestre\\Programacion II\\Proyecto Final\\Backend\\progra2\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
       "projectName": "WebApplication4",
-      "projectPath": "D:\\Upana\\2022\\Segundo Semestre\\Programacion II\\Proyecto Final\\Backend\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
+      "projectPath": "D:\\Upana\\2022\\Segundo Semestre\\Programacion II\\Proyecto Final\\Backend\\progra2\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
       "packagesPath": "C:\\Users\\Roger\\.nuget\\packages\\",
-      "outputPath": "D:\\Upana\\2022\\Segundo Semestre\\Programacion II\\Proyecto Final\\Backend\\WebApplication4\\WebApplication4\\obj\\",
+      "outputPath": "D:\\Upana\\2022\\Segundo Semestre\\Programacion II\\Proyecto Final\\Backend\\progra2\\WebApplication4\\WebApplication4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Roger\\AppData\\Roaming\\NuGet\\NuGet.Config",

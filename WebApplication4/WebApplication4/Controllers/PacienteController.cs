@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using WebApplication4.Modelos;
 using WebApplication4.Servicios;
 
 namespace WebApplication4.Controllers
@@ -16,13 +17,14 @@ namespace WebApplication4.Controllers
         {
             this.pacienteServicio = pacienteServicio;
         }
+
         // GET: PacienteController
         [HttpGet("")]
         public async Task<IActionResult> Test()
         {
             try {
-                var algo = await this.pacienteServicio.ConteoAsync();
-                return Ok("Funciona "+ algo);
+                var pacientes = await this.pacienteServicio.ObtenerPacientes();
+                return Ok(pacientes);
             }
             catch (Exception ex) { 
                 return StatusCode(500, ex.Message);
@@ -30,73 +32,53 @@ namespace WebApplication4.Controllers
             
         }
 
-        // GET: PacienteController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: PacienteController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: PacienteController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpPut("")]
+        public async Task<IActionResult> Actualziar([FromBody] Paciente paciente)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var actualizado = await this.pacienteServicio.ActualizarPaciente(paciente);
+                return Ok(actualizado);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return StatusCode(500, ex.Message);
             }
+
         }
 
-        // GET: PacienteController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: PacienteController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [HttpPost("")]
+        public async Task<IActionResult> Agregar([FromBody] Paciente paciente)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var agregado = await this.pacienteServicio.NuevoPaciente(paciente);
+                return Ok(agregado);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return StatusCode(500, ex.Message);
             }
+
         }
 
-        // GET: PacienteController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PacienteController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [HttpDelete("{IdPaciente:int}")]
+        public async Task<IActionResult> Eliminar(int idPaciente)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var eliminado = await this.pacienteServicio.EliminarPaciente(new Paciente { 
+                    IdPaciente = idPaciente
+                });
+                return Ok(eliminado);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return StatusCode(500, ex.Message);
             }
+
         }
+
+
     }
 }
