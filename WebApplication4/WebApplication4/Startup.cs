@@ -38,6 +38,12 @@ namespace WebApplication4
             services.AddTransient<IPacienteRepositorio, PacienteRepositorio>();
             services.AddTransient<IPacienteServicio, PacienteServicio>();
 
+            services.AddTransient<IMedicoRepositorio, MedicoRepositorio>();
+            services.AddTransient<IMedicoServicio, MedicoServicio>();
+
+            services.AddTransient<IEspecialidadRepositorio, EspecialidadRepositorio>();
+            services.AddTransient<IEspecialidadServicio, EspecialidadServicio>();
+
             services.AddTransient<IConnectionProvider, ConnectionProvider>();
         }
 
